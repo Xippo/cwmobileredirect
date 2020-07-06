@@ -5,10 +5,10 @@ if (!defined("TYPO3_MODE")) {
 }
 
 $TYPO3_CONF_VARS['SC_OPTIONS']['tslib/index_ts.php']['preprocessRequest'][]
-    =  'EXT:cwmobileredirect/Classes/Main.php:&CarstenWindler\\Cwmobileredirect\\Main->firstEntryPoint';
+    =  \CarstenWindler\Cwmobileredirect\Main::class .'->firstEntryPoint';
 
 $TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['configArrayPostProc']['tx_cwmobileredirect']
-    = 'EXT:cwmobileredirect/Classes/Main.php:&CarstenWindler\\Cwmobileredirect\\Main->secondEntryPoint';
+    = \CarstenWindler\Cwmobileredirect\Main::class . '->secondEntryPoint';
 	
 // include user functions to use in typoscript conditions	
 require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('cwmobileredirect') . 'Classes/UserFunctions.php');
