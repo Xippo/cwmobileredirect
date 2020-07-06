@@ -188,10 +188,10 @@ class ext_update
         if ($this->majorVersion >= 6) {
             // Typo3 >= 6.0
             $objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-            $configurationUtility = $objectManager->get('TYPO3\\CMS\\Extensionmanager\\Utility\\ConfigurationUtility');
+            $configurationUtility = $objectManager->get(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class);
 
             $extConfTemplateArr =
-                $configurationUtility->getDefaultConfigurationFromExtConfTemplateAsValuedArray($this->extKey);
+                $configurationUtility->getParsedExtConfTemplate($this->extKey);
         }
 
         return $extConfTemplateArr;
